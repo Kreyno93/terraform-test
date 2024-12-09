@@ -19,7 +19,10 @@ resource "aws_instance" "example2" {
   instance_type = var.instance_type
   key_name      = "vockey"
 
-  user_data = file("userdata.tpl")
+  user_data = templatefile("userdata.tpl", {
+    variable_1 = var.variable_1,
+    variable_2 = var.variable_2
+  })
 
   tags = {
     Name = "Simple-EC2-TPL"
