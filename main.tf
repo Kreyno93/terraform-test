@@ -5,6 +5,7 @@ provider "aws" {
 resource "aws_instance" "example" {
   ami           = var.ami_id
   instance_type = var.instance_type
+  key_name      = "vockey"
 
   user_data = <<-EOF
     #!/bin/bash
